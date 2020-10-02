@@ -1,0 +1,30 @@
+.ck.ck-editor {
+    margin-bottom:15px !important;
+}
+
+.customFormStyle .form-group > input,
+.form-group > textarea
+{
+    border-radius: 0px;
+    border:0px;
+    box-shadow:0px 0px 3px lightgray; 
+    padding:20px;
+}
+
+.customFormStyle button {
+    border-radius:0px;
+}
+
+.form-control:focus{
+    border-radius:0px;
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: inset 0px 0px 1px gray; 
+    color:lightgrey
+}
+
+.form-group > small {
+    padding:5px 10px;
+    display:block;
+    margin-top:10px;
+}

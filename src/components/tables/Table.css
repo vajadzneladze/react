@@ -1,0 +1,47 @@
+.dataTables_paginate > .pagination {
+    float:right;
+}
+
+.dataTables_info {
+    padding-top:7px;
+}
+
+.paginate_button span {
+    cursor:pointer;
+}
+
+.delRow {
+    cursor:pointer;
+    color:red;
+    font-size:17px;
+    margin:0px;
+    margin-left:10px;
+}
+
+.editRow {
+    color:#428bca;
+    cursor:pointer;
+    font-size:17px;
+    margin:0px;
+    margin-left:20px;
+}
+
+.addNewItem {
+    position:relative;
+    margin-right:25px;
+}
+
+.addNewItem:active {
+    box-shadow:none;
+}
+
+.addNewItem span{
+    display:block;
+}
+.addNewItem i {
+    display:block;
+    float:left;
+    padding-top:2px;
+    font-size:18px;
+    margin-right:10px;
+} 
