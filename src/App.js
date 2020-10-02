@@ -212,10 +212,6 @@ const App = () => {
       <Route path = '/:lang?//users/:id/edit'    component = { EditUser } exact /> 
       */}
 
-      {/* <Route path = ':lang/contacts'       component = { Contact } exact /> */}
-   
-      
-
       <Route path = '/:lang?/frontboxes/create'    component = { CreateFrontBox } exact />
       <Route path = '/:lang?/frontboxes/:id/edit'  component = { EditFrontBox } exact />
       <Route path = '/:lang?/frontboxes'           component = { FrontBox } exact />

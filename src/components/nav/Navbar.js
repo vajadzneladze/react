@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import logo from '../../assets/img/logo.png';
 
 /** Service */
 import API from '../../services/api';
