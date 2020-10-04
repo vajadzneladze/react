@@ -1,0 +1,11 @@
+.customFormStyle {
+    padding:20px;
+    margin:20px;
+    box-shadow: 0px 0px 2px 1px lightgray;
+    background-color:white;
+}
+
+.customFormStyle button {
+    background-color:#746ec3;
+    color:white;
+}

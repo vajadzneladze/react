@@ -3,3 +3,38 @@
     padding:10px;
     cursor:pointer;
 }
+
+#page-wrapper {
+    padding:50px;
+    background-color:#f3f5f7;
+}
+
+#page-wrapper .page-title-box {
+    margin-bottom:25px;
+    position:relative;
+    overflow:hidden;
+}
+
+#page-wrapper .page-title-box > h4{
+    float:left;
+    color:#428bca;
+}
+
+#pager-wrapper .page-title-box .breadcrumb {
+    margin-bottom:0px;
+}
+
+#page-wrapper  .breadcrumb{
+    float:right
+}
+#wrapper {
+    margin-top:-14px;
+}
+
+#page-wrapper .panel {
+    border-radius:0px;
+    border:0px;
+    box-shadow:0px 0px 2px 1px lightgray;
+
+}
+

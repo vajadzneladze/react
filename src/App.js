@@ -17,13 +17,12 @@ import Navbar from './components/nav/Navbar';
 /** View */
 import Login from './view/auth/Login';
 import Blank from './view/blank/Blank';
-// import User from './view/user/User';
-// import CreateUser from './view/user/CreateUser';
-// import EditUser from './view/user/EditUser';
-// import Role from './view/role/Role';
-// import CreateRole from './view/role/CreateRole';
-// import EditRole from './view/role/EditRole';
-
+import User from './view/user/User';
+import CreateUser from './view/user/CreateUser';
+import EditUser from './view/user/EditUser';
+import Role from './view/role/Role';
+import CreateRole from './view/role/CreateRole';
+import EditRole from './view/role/EditRole';
 import Contact from './view/contact/Contact';
 import CreateContact from './view/contact/CreateContact';
 import EditContact from './view/contact/EditContact';
@@ -198,19 +197,14 @@ const App = () => {
       
       <Route path = '/login'    component = { Login } exact />
       <Route path = '/blank'    component = { Blank } exact />
-    {/* 
+    
       <Route path = '/:lang?/roles'           component = { Role } exact />
-      <Route path = '/:lang?/roles/create'    component = { CreateRole } exact />
+      <Route path = '/:lang?/roles/create'    component = { CreateRole } exact /> 
       <Route path = '/:lang?/roles/:id/edit'  component = { EditRole } exact />
 
-      <Route path = '/:lang?//users'             component = { User } exact />
-      <Route path = '/:lang?//users/create'      component = { CreateUser } exact />
-      <Route path = '/:lang?//users/:id/edit'    component = { EditUser } exact />
-
-      <Route path = '/:lang?//users'             component = { User } exact />
-      <Route path = '/:lang?//users/create'      component = { CreateUser } exact />
-      <Route path = '/:lang?//users/:id/edit'    component = { EditUser } exact /> 
-      */}
+      <Route path = '/:lang?/users'             component = { User } exact />
+      <Route path = '/:lang?/users/create'      component = { CreateUser } exact />
+      <Route path = '/:lang?/users/:id/edit'    component = { EditUser } exact />
 
       <Route path = '/:lang?/frontboxes/create'    component = { CreateFrontBox } exact />
       <Route path = '/:lang?/frontboxes/:id/edit'  component = { EditFrontBox } exact />

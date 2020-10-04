@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+/** Styles */
+import './Form.css';
+
 /** ui-components */
 import Input from '../ui-components/input/Input';
 
@@ -85,10 +88,10 @@ const Form = ({ formData , module , method = 'store' , id = 1 , lang = ''}) => {
 
     return (
         <div className="row">
-            <div className="col-lg-5"> 
-                <h4 className = 'text-center'> ყურადღებით შეავსეთ ყველა აუცილებელი (*) ველი </h4>
-                <hr/>
-                <form className = 'text-center customFormStyle' onSubmit = { submitHandler }>
+            <div className="col-lg-5 customFormStyle"> 
+                <h5 className='text-left'> ყურადღებით შეავსეთ ყველა აუცილებელი (*) ველი </h5>
+                <br/>
+                <form className = 'text-center ' onSubmit = { submitHandler }>
                     {
                         data ? 
                             Object.keys(data).map( item => {

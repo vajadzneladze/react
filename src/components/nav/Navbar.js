@@ -150,9 +150,9 @@ const Navbar = ({location , history}) => {
                         <li className = { childNav ? 'active' : '' } >
                             <Link to="#"><i className ="fa fa-cog" aria-hidden="true"> </i> &nbsp;პარამეტრები<span className ="fa arrow" onClick = { () => { setChildNav(!childNav) } }></span></Link>
                             <ul className={`nav nav-second-level collapse ${childNav ? 'in' : null}`} style={{ height: 'auto' }}>
-                                {/* <li>
+                                <li>
                                     <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/roles`}> <i className="fa fa-eye fa-fw"></i> &nbsp;როლები </Link>
-                                </li> */}
+                                </li> 
                                 <li>
                                     <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/localizations`}> <i className="fa fa-globe fa-fw"></i> &nbsp;ენები </Link>
                                 </li>
@@ -166,6 +166,9 @@ const Navbar = ({location , history}) => {
                         </li>
                         <li>
                             <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/feedbacks`}> <i className="fa fa-bullhorn	 fa-fw"></i> &nbsp;ფიდბექი </Link>
+                        </li>
+                        <li>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/users`}> <i className="fa fa-users fa-fw"></i> &nbsp;მომხმარებლები </Link>
                         </li>
                         <li>
                             <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/abouts`}> <i className="fa fa-fa fa-info-circle  fa-fw"></i> &nbsp;ჩვენს შესახებ </Link>
