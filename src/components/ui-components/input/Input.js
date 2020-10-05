@@ -33,7 +33,7 @@ const Input = ({ data , onChangeHandler }) => {
                     inputTamplate = <div className = 'form-group'>
                             <select 
                                 className    = 'form-control' 
-                                defaultValue = { data.value } 
+                                defaultValue = { data.value ? 1 : 0 } 
                                 name         = { data.name } 
                                 onChange     = { e => onChangeHandler( e.target.value, data.name ) }>
                                 {
