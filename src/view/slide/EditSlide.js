@@ -92,6 +92,7 @@ const EditSlide = ({ match }) => {
 
                         if (item === 'file_id') {
                             apiData['fileId'].value = resData[item] ? resData[item] : '';
+                            apiData['fileId'].path = resData.img.path ? resData.img.path  : '';
                         }
                     })
 

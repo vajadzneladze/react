@@ -13,8 +13,7 @@ import { formObjToPostData } from '../../services/dataHandlerServices';
 
 const Form = ({ formData , module , method = 'store' , id = 1 , lang = ''}) => {
 
-    const [ data , setData ] = useState(null);
-
+    const [data, setData] = useState(null);
 
     const onChangeHandler = ( val, name ) => {
 
@@ -47,6 +46,7 @@ const Form = ({ formData , module , method = 'store' , id = 1 , lang = ''}) => {
                         path: file.path
                     }
                 })
+                
                 alert('სურათი ატვირთულია')
             }).catch(err => {
                 alert('ფაილი არ აიტვირთა')
@@ -85,7 +85,6 @@ const Form = ({ formData , module , method = 'store' , id = 1 , lang = ''}) => {
         setData({ ...formData });
     }, [ formData ])
 
-
     return (
         <div className="row">
             <div className="col-lg-5 customFormStyle"> 
@@ -102,6 +101,14 @@ const Form = ({ formData , module , method = 'store' , id = 1 , lang = ''}) => {
                     <button type = 'submit' className = 'btn btn-primary form-control'> გაგზავნა </button>
                 </form>
             </div>
+            
+            {
+                ( data && data.fileId && data.fileId.path)  ? <div className="col-lg-5 customFormStyle"> 
+                            <h5 className='text-left'> Live Image * </h5>
+                            <img src = { `http://127.0.0.1:8000${data.fileId.path}`}  className="img-thumbnail"/>
+                        </div> : null
+            }
+            
         </div>
     );
 }
