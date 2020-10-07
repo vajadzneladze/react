@@ -69,7 +69,7 @@ const Table = ({ headers  , module , queryStr , history  , lang = ''}) => {
             alert('ჩანაწერი წარმატებით წაიშალა')
         });
     }
-
+ 
     const filterHandler = ( filterName , filterValue ) => { 
 
         let { page , perPage , keyword} = queryStrToObj(queryStr);

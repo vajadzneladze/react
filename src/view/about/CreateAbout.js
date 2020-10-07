@@ -30,13 +30,12 @@ const formObj = {
             options : [
                 {
                     id:1,
-                    title:'აქტიური'
+                    title:'active'
                 },
                 {
                     id:0,
-                    title:'შეჩერებული'
+                    title:'inactive'
                 },
-            
             ]
     },
     file: {

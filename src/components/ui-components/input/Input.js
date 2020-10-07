@@ -3,6 +3,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 /** Style */
 import './Input.css';
 
+/** Redux  */
+import { useSelector } from 'react-redux';
+
 /** CKeditor for textArea */
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -10,7 +13,23 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const Input = ({ data , onChangeHandler }) => {
 
-    const [ template , setTemplate] = useState(null);
+    const [template, setTemplate] = useState(null);
+    const tr = useSelector(state => state.dictionary.dictionary);
+
+    const translate = str => {
+
+        let translation = str;
+
+        if (tr[module] && tr[module][str]) {
+            
+            translation = tr[module][str];
+        } else if (tr['global'] && tr['global'][str]) {
+            
+            translation = tr['global'][str];
+        }
+
+        return translation;
+    }
 
     const drawInputhandler = useCallback(() => {
         let inputTamplate  = ``;
@@ -23,7 +42,7 @@ const Input = ({ data , onChangeHandler }) => {
                                 type         = { data.type } 
                                 name         = { data.name }
                                 defaultValue = { data.value }
-                                placeholder  = { data.label}
+                                placeholder  = { translate(data.name) }
                                 onChange     = { e => onChangeHandler( e.target.value, data.name ) }
                             />
                         </div>
@@ -40,7 +59,7 @@ const Input = ({ data , onChangeHandler }) => {
                                     data.options.map( item => {
                                         return <option 
                                                     key   = {item.id}  
-                                                    value = { item.id } >  { item.title } </option>
+                                                    value = { item.id } >  { translate(item.title) } </option>
                                     })
                                 }
                             </select>
@@ -54,7 +73,7 @@ const Input = ({ data , onChangeHandler }) => {
                                 name         = { data.name } 
                                 onChange     = { e => onChangeHandler( e.target.value , data.name) }  
                                 defaultValue = { data.value } 
-                                placeholder  = { data.label } 
+                                placeholder  = { translate(data.name) } 
                                 rows="5">
                             </textarea>
                         </div>
