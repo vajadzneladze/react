@@ -9,12 +9,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import allActions from '../../redux/actions';
 
 
-const Navbar = ({location , history}) => {
+const Navbar = ({location , history , module = 'navigation'}) => {
 
     const dispatch = useDispatch();
     const [childNav, setChildNav] = useState(false);
     
     const langStore = useSelector(state => state.dictionary);
+    const tr = langStore.dictionary;
+
+    const translate = str => {
+
+        let translation = str;
+
+        if (tr[module] && tr[module][str]) {
+            
+            translation = tr[module][str];
+        } else if (tr['global'] && tr['global'][str]) {
+            
+            translation = tr['global'][str];
+        }
+
+        return translation;
+    }
 
     const logOutHandler = () => {
 
@@ -133,48 +149,48 @@ const Navbar = ({location , history}) => {
                             <Link to = '/news'> <i className="fa fa-desktop fa-fw"></i> &nbsp;სიახლეები </Link>
                         </li> */}
                         <li>
-                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/frontboxes`}> <i className="fa fa-play fa-fw"></i> &nbsp; boxes </Link>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/frontboxes`}> <i className="fa fa-play fa-fw"></i> &nbsp; {translate('boxes')} </Link>
                         </li>
                         <li>
-                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/slides`}> <i className="fa fa-play fa-fw"></i> &nbsp;სლაიდები </Link>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/slides`}> <i className="fa fa-play fa-fw"></i> &nbsp;{translate('slides')} </Link>
                         </li>
                         <li>
-                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/workingstyles`}> <i className="fa fa-coffee fa-fw"></i> &nbsp;მუშაობის სტილი </Link>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/workingstyles`}> <i className="fa fa-coffee fa-fw"></i> &nbsp;{translate('workingStyle')}</Link>
                         </li>
                         <li>
-                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/numbers`}> <i className="fa fa-sort-numeric-asc fa-fw"></i> &nbsp;საინტერესო ციფრები </Link>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/numbers`}> <i className="fa fa-sort-numeric-asc fa-fw"></i> &nbsp;{translate('numbers')} </Link>
                         </li>
                         <li>
-                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/blogs`}> <i className="fa fa-rss fa-fw"></i> &nbsp;ბლოგი </Link>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/blogs`}> <i className="fa fa-rss fa-fw"></i> &nbsp;{translate('blog')} </Link>
                         </li>
                         <li className = { childNav ? 'active' : '' } >
-                            <Link to="#"><i className ="fa fa-cog" aria-hidden="true"> </i> &nbsp;პარამეტრები<span className ="fa arrow" onClick = { () => { setChildNav(!childNav) } }></span></Link>
+                            <Link to="#"><i className ="fa fa-cog" aria-hidden="true"> </i> &nbsp;{translate('settings')}<span className ="fa arrow" onClick = { () => { setChildNav(!childNav) } }></span></Link>
                             <ul className={`nav nav-second-level collapse ${childNav ? 'in' : null}`} style={{ height: 'auto' }}>
                                 <li>
-                                    <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/roles`}> <i className="fa fa-eye fa-fw"></i> &nbsp;როლები </Link>
+                                    <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/roles`}> <i className="fa fa-eye fa-fw"></i> &nbsp;{translate('roles')} </Link>
                                 </li> 
                                 <li>
-                                    <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/localizations`}> <i className="fa fa-globe fa-fw"></i> &nbsp;ენები </Link>
+                                    <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/localizations`}> <i className="fa fa-globe fa-fw"></i> &nbsp;{translate('languages')} </Link>
                                 </li>
                                 <li>
-                                    <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/dictionaries`}> <i className="fa fa-book fa-fw"></i> &nbsp;ლექსიკონი </Link>
+                                    <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/dictionaries`}> <i className="fa fa-book fa-fw"></i> &nbsp;{translate('dictionary')} </Link>
                                 </li>  
                             </ul>
                         </li>
                         <li>
-                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/vacancies`}> <i className="fa fa-archive fa-fw"></i> &nbsp;ვაკანსიები </Link>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/vacancies`}> <i className="fa fa-archive fa-fw"></i> &nbsp;{translate('vacancies')} </Link>
                         </li>
                         <li>
-                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/feedbacks`}> <i className="fa fa-bullhorn	 fa-fw"></i> &nbsp;ფიდბექი </Link>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/feedbacks`}> <i className="fa fa-bullhorn	 fa-fw"></i> &nbsp;{translate('feedback')} </Link>
                         </li>
                         <li>
-                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/users`}> <i className="fa fa-users fa-fw"></i> &nbsp;მომხმარებლები </Link>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/users`}> <i className="fa fa-users fa-fw"></i> &nbsp;{translate('users')} </Link>
                         </li>
                         <li>
-                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/abouts`}> <i className="fa fa-fa fa-info-circle  fa-fw"></i> &nbsp;ჩვენს შესახებ </Link>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/abouts`}> <i className="fa fa-fa fa-info-circle  fa-fw"></i> &nbsp;{translate('about')}</Link>
                         </li>
                         <li>
-                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/contacts`}> <i className="fa fa-phone fa-fw"></i> &nbsp;კონტაქტი </Link>
+                            <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/contacts`}> <i className="fa fa-phone fa-fw"></i> &nbsp;{translate('contact')}</Link>
                         </li>
 
                     </ul>

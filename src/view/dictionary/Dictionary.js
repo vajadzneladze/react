@@ -8,7 +8,8 @@ const tableHeader = {
     item_id: '#',
     key: 'საკვანძო სიტყვა',
     value: 'მნიშვნელობა',
-    module:'მოდული'
+    module: 'მოდული',
+    language: 'ენა'
 };
 
 const Dictionary = ({ location , match}) => {

@@ -4,6 +4,9 @@ import { Link, withRouter } from 'react-router-dom';
 /** Style */
 import './Table.css';
 
+/** Redux */
+import { useSelector } from 'react-redux';
+
 /** Services */
 import API from '../../services/api';
 import { queryStrToObj  , pagerHandler} from '../../services/dataHandlerServices';
@@ -13,14 +16,16 @@ const Table = ({ headers  , module , queryStr , history  , lang = ''}) => {
 
     const [ data , setData ] = useState(null);
     const [ pagerDesc , setPagerDeasc ] = useState({
-        from  : 1,
-        to    : 1,
+        from  : '', 
+        to    : '',
         total : 0,
         lastPage:1,
         current:1
     }) 
     const [ pages, setPages ] = useState([1]);
     const mountedRef = useRef(true);
+    const tr = useSelector(state => state.dictionary.dictionary);
+
 
     const fetchData = useCallback(() => {
 
@@ -51,7 +56,6 @@ const Table = ({ headers  , module , queryStr , history  , lang = ''}) => {
 
         } , [ queryStr , module , lang ]
     );
-
 
     const deleteHandler = ( module , id ) => {
 
@@ -90,6 +94,23 @@ const Table = ({ headers  , module , queryStr , history  , lang = ''}) => {
         history.push(redirect);
     }
 
+    const translate = str => {
+
+        let translation = headers[str] ? headers[str] : '';
+
+        if (tr[module] && tr[module][str]) {
+            
+            translation = tr[module][str];
+        } else if (tr['global'] && tr['global'][str]) {
+            
+            translation = tr['global'][str];
+        }
+
+        return translation;
+    }
+
+
+
     useEffect(() => {
 
         mountedRef.current = true;
@@ -99,8 +120,9 @@ const Table = ({ headers  , module , queryStr , history  , lang = ''}) => {
         return () => {
             mountedRef.current = false;
         }
-    },[ queryStr , fetchData ])
+    }, [queryStr, fetchData])
     
+
     return (
         <div className="row">
             <div className="col-lg-12">
@@ -143,7 +165,7 @@ const Table = ({ headers  , module , queryStr , history  , lang = ''}) => {
                                     <tr>
                                         {
                                             Object.keys(headers).map(item => {
-                                                return <th key = { item } > { headers[item] } </th>
+                                                return <th key = { item } > { translate(item) }  </th>
                                             })
                                         }
                                         <th>   </th>

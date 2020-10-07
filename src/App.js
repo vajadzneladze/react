@@ -141,21 +141,29 @@ const App = () => {
   /** Sets all translations (key: value) from the database to Redux Store  */
   const dictionaryHandler = useCallback( lang => {
 
-    let apiUrl = `${dictionary.lang}/dictionaries`;
+    let apiUrl = `${dictionary.lang}/dictionaries/getAllRecord`;
 
       API.get(apiUrl).then(res => {
 
         const { data } = res.data;
 
-        let newArray = [];                                                             
-        let obj = data.data;
+        let obj = data;
+        let dictionary = {};
 
         obj.forEach(item => {
-          newArray[item.key] = item.value;
+          
+          let translatePage = item.module ? item.module : 'global';
+
+          dictionary = { 
+            ...dictionary,
+            [translatePage ] : { 
+              ...dictionary[translatePage],
+              [item.key] : item.value ? item.value : item.key
+            }
+          }
         })
         
-        dispatch(allActions.dictionaryActions.setDictionary(newArray));
-
+        dispatch(allActions.dictionaryActions.setDictionary(dictionary));
       }).catch(err => {
         console.log('something went wrong ...')
       })
