@@ -96,7 +96,7 @@ const Input = ({ data , onChangeHandler }) => {
                                 config   = {
                                             {
                                                 ckfinder:{
-                                                    uploadUrl:'http://127.0.0.1:800/api/files' 
+                                                    uploadUrl:'http://localhost:8000/api/ckeditor/upload' 
                                                 }
                                             }
                                         }

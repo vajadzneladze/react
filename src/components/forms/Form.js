@@ -104,7 +104,9 @@ const Form = ({ formData , module , method = 'store' , id = 1 , lang = ''}) => {
             
             {
                 ( data && data.fileId && data.fileId.path)  ? <div className="col-lg-5 customFormStyle"> 
-                            <h5 className='text-left'> Live Image * </h5>
+                    <h5 className='text-left'> Live Image * </h5>
+                                    <div dangerouslySetInnerHTML={ { __html: data.description.value } }></div>
+
                             <img src = { `http://127.0.0.1:8000${data.fileId.path}`}  className="img-thumbnail"/>
                         </div> : null
             }
