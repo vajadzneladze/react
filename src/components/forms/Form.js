@@ -95,7 +95,7 @@ const Form = ({ formData , module , method = 'store' , id = 1 , lang = ''}) => {
                         data ? 
                             Object.keys(data).map( item => {
 
-                                return <Input data = { data[item] } key = { item }  onChangeHandler = { onChangeHandler }/>
+                                return <Input data = { data[item] } key = { item } module = { module }  onChangeHandler = { onChangeHandler }/>
                             }) : null
                     }
                     <button type = 'submit' className = 'btn btn-primary form-control'> გაგზავნა </button>

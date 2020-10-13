@@ -130,7 +130,7 @@ const Table = ({ headers  , module , queryStr , history  , lang = ''}) => {
                     <div className="panel-heading text-right" > 
                         <Link to ={`${process.env.PUBLIC_URL}/${lang? lang: localStorage.getItem('lang')}/${module}/create`} className = 'btn btn-secondary addNewItem'> 
                             <i className="fa fa-plus-circle" aria-hidden="true"></i>
-                            <span>ახლის დამატება </span>
+                            <span> {translate('add_new')} </span>
                         </Link>
                     </div>
                     <div className="panel-body">

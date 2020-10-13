@@ -74,9 +74,10 @@ export const formObjToPostData = obj => {
     let postData = {};
 
     Object.keys(obj).forEach(item => {
-        if(obj[item].value){
-            postData[item] = obj[item].value;
-        }
+        // if(obj[item].value){
+        // }
+        postData[item] = obj[item].value;
+
     }); 
 
     return postData;

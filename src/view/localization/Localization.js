@@ -10,7 +10,7 @@ const tableHeader = {
     abbreviation: 'აბრევიატურა',
     native: 'მშობლიური',
     locale: 'ლოკალური აღნიშვნა',
-    status: 'ტატუსი',
+    status: 'სტატუსი',
     default: 'ძირითადი',
     
 }; 

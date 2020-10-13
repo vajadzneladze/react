@@ -148,18 +148,18 @@ const Navbar = ({location , history , module = 'navigation'}) => {
                         <li>
                             <Link to = '/news'> <i className="fa fa-desktop fa-fw"></i> &nbsp;სიახლეები </Link>
                         </li> */}
-                        <li>
+                        {/* <li>
                             <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/frontboxes`}> <i className="fa fa-play fa-fw"></i> &nbsp; {translate('boxes')} </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/slides`}> <i className="fa fa-play fa-fw"></i> &nbsp;{translate('slides')} </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/workingstyles`}> <i className="fa fa-coffee fa-fw"></i> &nbsp;{translate('workingStyle')}</Link>
                         </li>
                         <li>
                             <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/numbers`}> <i className="fa fa-sort-numeric-asc fa-fw"></i> &nbsp;{translate('numbers')} </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/blogs`}> <i className="fa fa-rss fa-fw"></i> &nbsp;{translate('blog')} </Link>
                         </li>
@@ -177,9 +177,9 @@ const Navbar = ({location , history , module = 'navigation'}) => {
                                 </li>  
                             </ul>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/vacancies`}> <i className="fa fa-archive fa-fw"></i> &nbsp;{translate('vacancies')} </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to = {`${process.env.PUBLIC_URL}/${langStore.lang}/feedbacks`}> <i className="fa fa-bullhorn	 fa-fw"></i> &nbsp;{translate('feedback')} </Link>
                         </li>

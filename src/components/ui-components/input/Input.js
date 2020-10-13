@@ -11,14 +11,16 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
-const Input = ({ data , onChangeHandler }) => {
+const Input = ({ data , onChangeHandler, module = '' }) => {
 
     const [template, setTemplate] = useState(null);
     const tr = useSelector(state => state.dictionary.dictionary);
+    
 
     const translate = str => {
 
         let translation = str;
+
 
         if (tr[module] && tr[module][str]) {
             
